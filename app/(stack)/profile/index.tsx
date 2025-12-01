@@ -1,10 +1,10 @@
 import React from "react";
 import { Text, View } from "react-native";
 
-export default function Products() {
+export default function Profile() {
   return (
     <View className="flex-1 items-center justify-center bg-white">
-      <Text className="text-xl font-bold text-red-500">Products</Text>
+      <Text className="text-xl font-bold text-red-500">Profile screen</Text>
     </View>
   );
 }
