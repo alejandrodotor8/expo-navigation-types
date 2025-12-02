@@ -5,7 +5,6 @@ export default function StackLayout() {
   return (
     <Stack
       screenOptions={{
-        //headerShown: false
         headerShadowVisible: false,
         headerStyle: {
           backgroundColor: "#fff",
@@ -15,8 +14,18 @@ export default function StackLayout() {
         },
       }}
     >
-      <Stack.Screen name="home/index" options={{ title: "Home" }} />
-      <Stack.Screen name="products/index" options={{ title: "Products" }} />
+      <Stack.Screen
+        name="home/index"
+        options={{ title: "Home", headerShown: false }}
+      />
+      <Stack.Screen name="products/index" options={{ title: "All products" }} />
+      <Stack.Screen
+        name="products/[id]"
+        options={{
+          title: "Product details",
+          headerStyle: { backgroundColor: "#EAD4FF" },
+        }}
+      />
       <Stack.Screen name="profile/index" options={{ title: "Profile" }} />
       <Stack.Screen name="settings/index" options={{ title: "Settings" }} />
     </Stack>
