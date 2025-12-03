@@ -1,32 +1,82 @@
+import Ionicons from "@expo/vector-icons/Ionicons";
 import React from "react";
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 
 export default function FavoritesScreen() {
   return (
-    <View className="flex-1 items-center justify-center bg-purple-50">
-      <Text className="text-lg font-semibold text-gray-800">
-        Favorites Screen
-      </Text>
-      <Text className="mt-2 text-sm text-gray-600 text-center px-4 max-w-xs">
-        This is the favorites section where you can save your favorite items.
-        Tap the heart icon to add items here.
-      </Text>
-      <View className="mt-4 flex-row gap-2 justify-center">
-        <View className="bg-red-200 px-2 py-1 rounded-full">
-          <Text className="text-red-800 text-xs">❤️ Heart Icon</Text>
-        </View>
-        <View className="bg-yellow-200 px-2 py-1 rounded-full">
-          <Text className="text-yellow-800 text-xs">⭐ Star Icon</Text>
+    <ScrollView
+      className="flex-1 bg-purple-50"
+      contentContainerStyle={{ paddingHorizontal: 24, paddingVertical: 32 }}
+      showsVerticalScrollIndicator={false}
+    >
+      <View className="bg-white rounded-3xl p-5 shadow-sm">
+        <Text className="text-sm font-semibold text-purple-500 uppercase">
+          Curated list
+        </Text>
+        <Text className="text-2xl font-bold text-gray-900 mt-2">
+          Your favorites in one place
+        </Text>
+        <Text className="text-sm text-gray-500 mt-3">
+          Add any product from the stack section to quickly revisit it later.
+        </Text>
+      </View>
+
+      <View className="mt-8 gap-4">
+        {[
+          {
+            title: "Purple sneakers",
+            description: "Comfortable and stylish kick-off for daily walks.",
+            tag: "Lifestyle",
+            iconColor: "#a855f7",
+          },
+          {
+            title: "Indigo headphones",
+            description: "Noise-cancelling with immersive sound profiles.",
+            tag: "Tech",
+            iconColor: "#6366f1",
+          },
+          {
+            title: "Stack hoodie",
+            description: "Stay cozy while testing custom navigation flows.",
+            tag: "Apparel",
+            iconColor: "#7c3aed",
+          },
+        ].map((item) => (
+          <View key={item.title} className="bg-white rounded-3xl p-4 flex-row gap-4">
+            <View className="w-14 h-14 rounded-2xl bg-purple-100 items-center justify-center">
+              <Ionicons
+                name="heart"
+                size={22}
+                color={item.iconColor as string}
+              />
+            </View>
+            <View className="flex-1">
+              <View className="flex-row items-center justify-between">
+                <Text className="text-sm font-semibold text-gray-500 uppercase">
+                  {item.tag}
+                </Text>
+                <Ionicons name="star" size={18} color="#facc15" />
+              </View>
+              <Text className="text-lg font-semibold text-gray-900">
+                {item.title}
+              </Text>
+              <Text className="text-sm text-gray-500">{item.description}</Text>
+            </View>
+          </View>
+        ))}
+      </View>
+
+      <View className="mt-8 bg-white rounded-3xl p-4 flex-row items-center gap-3">
+        <Ionicons name="add-circle" size={32} color="#7c3aed" />
+        <View className="flex-1">
+          <Text className="text-base font-semibold text-gray-900">
+            Add more favorites
+          </Text>
+          <Text className="text-sm text-gray-500">
+            Head to the stack tab and tap the heart icon in any product.
+          </Text>
         </View>
       </View>
-      <View className="mt-4 flex-row gap-2 justify-center">
-        <View className="bg-green-200 px-2 py-1 rounded-full">
-          <Text className="text-green-800 text-xs">🔍 Search Icon</Text>
-        </View>
-        <View className="bg-orange-200 px-2 py-1 rounded-full">
-          <Text className="text-orange-800 text-xs">⚙️ Settings Icon</Text>
-        </View>
-      </View>
-    </View>
+    </ScrollView>
   );
 }
