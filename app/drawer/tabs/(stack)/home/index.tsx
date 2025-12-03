@@ -5,24 +5,24 @@ import { Text, View } from "react-native";
 
 const destinations = [
   {
-    title: "All products",
-    description: "Browse the catalog and open detail views.",
+    title: "Flujos del stack",
+    description: "Explora los módulos con headers dinámicos.",
     icon: "grid-outline",
     href: "drawer/tabs/(stack)/products",
     color: "bg-purple-50",
     iconColor: "#7c3aed",
   },
   {
-    title: "Profile",
-    description: "Preview user information in a stacked route.",
+    title: "Perfil del stack",
+    description: "Visualiza cómo se ve un detalle dentro del stack.",
     icon: "person-circle-outline",
     href: "drawer/tabs/(stack)/profile",
     color: "bg-rose-50",
     iconColor: "#fb7185",
   },
   {
-    title: "Settings",
-    description: "Toggle stack headers and layout ideas.",
+    title: "Ajustes de navegación",
+    description: "Activa switches imaginarios para el header.",
     icon: "settings-outline",
     href: "drawer/tabs/(stack)/settings",
     color: "bg-blue-50",

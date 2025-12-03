@@ -5,25 +5,28 @@ export default function ScheduleScreen() {
   const schedule = [
     {
       id: "1",
-      title: "Design sync",
+      title: "Drawer warm-up",
       time: "09:00 AM",
-      description: "Review navigation concepts with the design team.",
+      description:
+        "Abre y cierra el drawer varias veces comprobando el overlay y el custom header.",
       color: "bg-purple-50",
       iconColor: "#7c3aed",
     },
     {
       id: "2",
-      title: "Product demo",
+      title: "Tabs relay",
       time: "11:30 AM",
-      description: "Showcase the new stack transition flow to clients.",
+      description:
+        "Navega entre Home y Favorites midiendo la persistencia de estado.",
       color: "bg-blue-50",
       iconColor: "#2563eb",
     },
     {
       id: "3",
-      title: "Code review",
+      title: "Stack deep dive",
       time: "03:15 PM",
-      description: "Validate the custom header implementation.",
+      description:
+        "Empuja rutas de productos y regresa usando el header personalizado.",
       color: "bg-amber-50",
       iconColor: "#f59e0b",
     },
@@ -31,8 +34,12 @@ export default function ScheduleScreen() {
 
   return (
     <View className="flex-1 bg-white px-4 py-6">
-      <Text className="text-2xl font-semibold text-gray-900 mb-4">
-        Today&apos;s schedule
+      <Text className="text-2xl font-semibold text-gray-900 mb-2">
+        Navigation rehearsal
+      </Text>
+      <Text className="text-sm text-gray-500 mb-4">
+        Repite estos hitos para interiorizar drawers, tabs y stacks en Expo
+        Router.
       </Text>
       <FlatList
         data={schedule}
