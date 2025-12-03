@@ -28,7 +28,7 @@ const ProductItem = ({ item }: { item: (typeof products)[0] }) => {
         ${item.price}
       </Text>
       <View className="absolute bottom-3 right-3">
-        <Link href={`/tabs/(stack)/products/${item.id}`}>
+        <Link href={`/drawer/tabs/(stack)/products/${item.id}`}>
           <View className="bg-purple-200 px-2 py-1 rounded-lg">
             <Text className="font-medium">Ver detalles</Text>
           </View>

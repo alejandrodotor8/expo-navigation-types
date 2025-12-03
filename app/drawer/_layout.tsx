@@ -14,6 +14,15 @@ export default function DrawerLayout() {
       }}
     >
       <Drawer.Screen
+        name="tabs"
+        options={{
+          title: "Home",
+          drawerIcon: () => (
+            <Ionicons name="home-outline" size={24} color="purple" />
+          ),
+        }}
+      />
+      <Drawer.Screen
         name="user/index"
         options={{
           title: "User",

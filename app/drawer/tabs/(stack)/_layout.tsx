@@ -23,7 +23,6 @@ export default function StackLayout() {
         name="products/[id]"
         options={{
           title: "Product details",
-          headerStyle: { backgroundColor: "#EAD4FF" },
         }}
       />
       <Stack.Screen name="profile/index" options={{ title: "Profile" }} />
