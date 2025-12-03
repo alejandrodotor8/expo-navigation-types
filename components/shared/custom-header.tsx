@@ -5,10 +5,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Animated, Pressable, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-const STACK_HOME_PATHS = [
-  "/drawer/tabs/(stack)",
-  "/drawer/tabs/(stack)/home",
-];
+const STACK_HOME_PATHS = ["/drawer/tabs/(stack)", "/drawer/tabs/(stack)/home"];
 
 const normalizePath = (path: string | null) => {
   if (!path || path === "/") {
@@ -50,22 +47,6 @@ const shouldHideStackHeader = (segments: string[]) => {
 const getTitleForPath = (paths: string[]) => {
   const mappings: { match: (path: string) => boolean; title: string }[] = [
     {
-      match: (current) => current.startsWith("/drawer/tabs/(stack)/products/"),
-      title: "Product details",
-    },
-    {
-      match: (current) => current === "/drawer/tabs/(stack)/products",
-      title: "All products",
-    },
-    {
-      match: (current) => current === "/drawer/tabs/(stack)/profile",
-      title: "Profile",
-    },
-    {
-      match: (current) => current === "/drawer/tabs/(stack)/settings",
-      title: "Settings",
-    },
-    {
       match: (current) =>
         STACK_HOME_PATHS.includes(current) ||
         current.startsWith("/drawer/tabs/(stack)"),
@@ -98,7 +79,7 @@ const getTitleForPath = (paths: string[]) => {
   ];
 
   const mapping = mappings.find(({ match }) =>
-    paths.some((candidate) => match(candidate)),
+    paths.some((candidate) => match(candidate))
   );
   if (mapping) {
     return mapping.title;
@@ -117,14 +98,8 @@ export const CustomHeader = ({ navigation }: DrawerHeaderProps) => {
   const insets = useSafeAreaInsets();
   const pathname = usePathname();
   const segments = useSegments();
-  const normalizedPath = useMemo(
-    () => normalizePath(pathname),
-    [pathname],
-  );
-  const segmentedPath = useMemo(
-    () => buildSegmentedPath(segments),
-    [segments],
-  );
+  const normalizedPath = useMemo(() => normalizePath(pathname), [pathname]);
+  const segmentedPath = useMemo(() => buildSegmentedPath(segments), [segments]);
   const candidatePaths = useMemo(() => {
     const values = new Set<string>();
     values.add(segmentedPath);
@@ -132,13 +107,10 @@ export const CustomHeader = ({ navigation }: DrawerHeaderProps) => {
     return Array.from(values);
   }, [segmentedPath, normalizedPath]);
 
-  const hideHeader = useMemo(
-    () => shouldHideStackHeader(segments),
-    [segments],
-  );
+  const hideHeader = useMemo(() => shouldHideStackHeader(segments), [segments]);
   const title = useMemo(
     () => getTitleForPath(candidatePaths),
-    [candidatePaths],
+    [candidatePaths]
   );
 
   const isVisible = !hideHeader;
@@ -177,7 +149,7 @@ export const CustomHeader = ({ navigation }: DrawerHeaderProps) => {
         inputRange: [0, 1],
         outputRange: [-40, 0],
       }),
-    [animation],
+    [animation]
   );
 
   if (!isRendered) {

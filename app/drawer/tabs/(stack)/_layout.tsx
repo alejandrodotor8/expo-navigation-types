@@ -1,17 +1,13 @@
 import { Stack } from "expo-router";
 import React from "react";
 
+import { CustomStackHeader } from "@/components/shared/custom-stack-header";
+
 export default function StackLayout() {
   return (
     <Stack
       screenOptions={{
-        headerShadowVisible: false,
-        headerStyle: {
-          backgroundColor: "#fff",
-        },
-        headerTitleStyle: {
-          color: "#000",
-        },
+        header: (props) => <CustomStackHeader {...props} />,
       }}
     >
       <Stack.Screen
